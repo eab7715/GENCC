@@ -12,51 +12,52 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
             min-height: 100vh;
-            padding: 20px;
+            padding: 0;
+            color: #1a1a1a;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            min-height: 100vh;
         }
 
         .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 32px 40px;
         }
 
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 1.875rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #111827;
+            letter-spacing: -0.025em;
         }
 
         .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
+            font-size: 0.9375rem;
+            color: #6b7280;
             max-width: 800px;
-            margin: 0 auto;
+            line-height: 1.5;
         }
 
         .controls {
-            padding: 30px 40px;
-            background: #f8f9fa;
-            border-bottom: 2px solid #e9ecef;
+            padding: 24px 40px;
+            background: #fafbfc;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .search-section {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 20px;
         }
 
@@ -66,110 +67,114 @@
 
         .search-box input {
             width: 100%;
-            padding: 15px 20px 15px 50px;
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s;
+            padding: 11px 16px 11px 40px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s;
+            background: white;
         }
 
         .search-box input:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
         .search-icon {
             position: absolute;
-            left: 18px;
+            left: 14px;
             top: 50%;
             transform: translateY(-50%);
-            color: #6c757d;
-            font-size: 20px;
+            color: #9ca3af;
+            font-size: 16px;
         }
 
         .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 11px 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
             white-space: nowrap;
+            background: white;
+            color: #374151;
+        }
+
+        .btn:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3b82f6;
             color: white;
+            border-color: #3b82f6;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-            transform: translateY(-2px);
+            background: #2563eb;
+            border-color: #2563eb;
         }
 
         .filter-section {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .filter-chip {
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 2px solid #dee2e6;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
             background: white;
             cursor: pointer;
-            transition: all 0.3s;
-            font-size: 14px;
+            transition: all 0.2s;
+            font-size: 13px;
             font-weight: 500;
+            color: #374151;
         }
 
         .filter-chip:hover {
-            border-color: #667eea;
+            background: #f9fafb;
+            border-color: #9ca3af;
         }
 
         .filter-chip.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
+            background: #eff6ff;
+            color: #1e40af;
+            border-color: #3b82f6;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 30px 40px;
-            background: white;
+            gap: 1px;
+            background: #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .stat-card {
-            padding: 20px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            text-align: center;
+            padding: 24px 40px;
+            background: white;
         }
 
         .stat-card h3 {
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 5px;
+            font-size: 1.875rem;
+            color: #111827;
+            margin-bottom: 4px;
+            font-weight: 600;
+            letter-spacing: -0.025em;
         }
 
         .stat-card p {
-            color: #6c757d;
-            font-size: 0.9em;
+            color: #6b7280;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
         }
 
         .content {
@@ -178,76 +183,102 @@
 
         .disease-grid {
             display: grid;
-            gap: 20px;
+            gap: 16px;
             margin-bottom: 30px;
         }
 
         .disease-card {
             background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.2s;
             cursor: pointer;
         }
 
         .disease-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
+            border-color: #3b82f6;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .disease-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .disease-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #2c3e50;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: #111827;
             flex: 1;
             margin-right: 20px;
+            line-height: 1.4;
         }
 
         .gene-count-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9em;
+            background: #f3f4f6;
+            color: #374151;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.8125rem;
             white-space: nowrap;
+            border: 1px solid #e5e7eb;
         }
 
         .evidence-breakdown {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
 
         .evidence-badge {
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 600;
-            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
         }
 
-        .evidence-definitive { background: #006400; }
-        .evidence-strong { background: #228B22; }
-        .evidence-moderate { background: #90EE90; color: #000; }
-        .evidence-supportive { background: #FFD700; color: #000; }
-        .evidence-limited { background: #FFA500; }
+        .evidence-definitive { 
+            background: #dcfce7; 
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .evidence-strong { 
+            background: #dbeafe; 
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+        
+        .evidence-moderate { 
+            background: #fef3c7; 
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+        
+        .evidence-supportive { 
+            background: #fce7f3; 
+            color: #831843;
+            border: 1px solid #fbcfe8;
+        }
+        
+        .evidence-limited { 
+            background: #f3f4f6; 
+            color: #374151;
+            border: 1px solid #e5e7eb;
+        }
 
         .gene-panel {
             display: none;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #e9ecef;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
         }
 
         .gene-panel.expanded {
@@ -257,96 +288,126 @@
         .gene-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 12px;
+            font-size: 0.875rem;
         }
 
         .gene-table th {
-            background: #f8f9fa;
-            padding: 12px;
+            background: #f9fafb;
+            padding: 10px 12px;
             text-align: left;
             font-weight: 600;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 1px solid #e5e7eb;
+            color: #374151;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .gene-table td {
             padding: 10px 12px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #f3f4f6;
+            color: #374151;
         }
 
         .gene-table tr:hover {
-            background: #f8f9fa;
+            background: #fafbfc;
+        }
+
+        .gene-table tbody tr:last-child td {
+            border-bottom: none;
         }
 
         .download-btn {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: white;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-weight: 500;
             cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
         }
 
         .download-btn:hover {
-            background: #218838;
+            background: #f9fafb;
+            border-color: #9ca3af;
         }
 
         .loading {
             text-align: center;
             padding: 60px;
-            color: #6c757d;
-            font-size: 1.2em;
+            color: #6b7280;
+            font-size: 0.9375rem;
         }
 
         .no-results {
             text-align: center;
             padding: 60px;
-            color: #6c757d;
+            color: #6b7280;
         }
 
         .no-results h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+            color: #374151;
+            font-weight: 600;
         }
 
         .legend {
-            background: #f8f9fa;
+            background: #fafbfc;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
         }
 
         .legend h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
+            margin-bottom: 12px;
+            color: #111827;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .legend-items {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 16px;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.8125rem;
         }
 
         .legend-color {
-            width: 30px;
-            height: 20px;
-            border-radius: 4px;
+            width: 24px;
+            height: 16px;
+            border-radius: 3px;
+            border: 1px solid rgba(0,0,0,0.1);
         }
 
         .error-message {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 10px;
-            padding: 15px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 16px;
             margin-bottom: 20px;
-            color: #856404;
+            color: #991b1b;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .error-message strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #7f1d1d;
         }
 
         @media (max-width: 768px) {
@@ -355,30 +416,54 @@
             }
             
             .header h1 {
-                font-size: 1.8em;
+                font-size: 1.5rem;
             }
+
+            .header,
+            .controls,
+            .content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+        }
+
+        /* Professional table styling */
+        .gene-symbol {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        /* Smooth transitions */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🧬 GenCC Genetic Screening Panel Browser</h1>
-            <p>Explore curated gene-disease associations from the Gene Curation Coalition. Search by disease, filter by evidence level, and download screening panels for clinical use.</p>
+            <h1>GenCC Genetic Screening Panel Browser</h1>
+            <p>Curated gene-disease associations from the Gene Curation Coalition. Search by disease, filter by evidence level, and download screening panels for clinical use.</p>
         </div>
 
         <div class="controls">
             <div class="search-section">
                 <div class="search-box">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="searchInput" placeholder="Search for diseases (e.g., cardiomyopathy, breast cancer, autism)...">
+                    <input type="text" id="searchInput" placeholder="Search diseases (e.g., cardiomyopathy, breast cancer, autism)...">
                 </div>
-                <button class="btn btn-secondary" onclick="downloadAllData()">⬇️ Download All</button>
+                <button class="btn" onclick="downloadAllData()">Download All Data</button>
             </div>
 
             <div class="filter-section">
                 <div class="filter-chip active" data-filter="all" onclick="toggleFilter(this, 'all')">
-                    All Evidence Levels
+                    All Levels
                 </div>
                 <div class="filter-chip" data-filter="definitive" onclick="toggleFilter(this, 'definitive')">
                     Definitive
@@ -409,36 +494,36 @@
             </div>
             <div class="stat-card">
                 <h3 id="totalAssociations">0</h3>
-                <p>Gene-Disease Associations</p>
+                <p>Associations</p>
             </div>
             <div class="stat-card">
                 <h3 id="visibleDiseases">0</h3>
-                <p>Showing Diseases</p>
+                <p>Showing</p>
             </div>
         </div>
 
         <div class="content">
             <div class="legend">
-                <h3>Evidence Classification Guide</h3>
+                <h3>Evidence Classification</h3>
                 <div class="legend-items">
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #006400;"></div>
+                        <div class="legend-color" style="background: #dcfce7; border-color: #bbf7d0;"></div>
                         <span><strong>Definitive:</strong> Conclusive evidence</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #228B22;"></div>
+                        <div class="legend-color" style="background: #dbeafe; border-color: #bfdbfe;"></div>
                         <span><strong>Strong:</strong> Well-supported</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #90EE90;"></div>
+                        <div class="legend-color" style="background: #fef3c7; border-color: #fde68a;"></div>
                         <span><strong>Moderate:</strong> Good evidence</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #FFD700;"></div>
+                        <div class="legend-color" style="background: #fce7f3; border-color: #fbcfe8;"></div>
                         <span><strong>Supportive:</strong> Emerging evidence</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color" style="background: #FFA500;"></div>
+                        <div class="legend-color" style="background: #f3f4f6; border-color: #e5e7eb;"></div>
                         <span><strong>Limited:</strong> Preliminary evidence</span>
                     </div>
                 </div>
@@ -446,7 +531,7 @@
 
             <div id="content">
                 <div class="loading">
-                    <p>⏳ Loading GenCC data...</p>
+                    <p>Loading GenCC data...</p>
                 </div>
             </div>
         </div>
@@ -478,8 +563,8 @@
             try {
                 // Try multiple possible paths for the CSV file
                 const possiblePaths = [
-                    'gencc_gene_disease_associations.csv',  // Same directory
-                    './gencc_gene_disease_associations.csv', // Explicit relative path
+                    'gencc_gene_disease_associations.csv',
+                    './gencc_gene_disease_associations.csv',
                 ];
 
                 let loaded = false;
@@ -511,14 +596,14 @@
             document.getElementById('content').innerHTML = `
                 <div class="loading">
                     <div class="error-message">
-                        <strong>⚠️ Failed to load data</strong><br>
+                        <strong>Failed to load data</strong>
                         This can happen if:<br>
                         • The CSV file is not in the same directory as index.html<br>
                         • You're opening the file directly (file://) instead of via a web server<br>
                         • GitHub Pages is not enabled for this repository
                     </div>
                     <p style="margin-top: 20px;">Please ensure gencc_gene_disease_associations.csv is in the same directory as index.html</p>
-                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.7;">
+                    <p style="margin-top: 10px; font-size: 0.875rem; color: #6b7280;">
                         If using GitHub, make sure GitHub Pages is enabled in your repository settings
                     </p>
                 </div>
@@ -667,7 +752,7 @@
                             <tbody>
                                 ${disease.genes.map(gene => `
                                     <tr>
-                                        <td><strong>${gene.symbol}</strong></td>
+                                        <td><span class="gene-symbol">${gene.symbol}</span></td>
                                         <td>
                                             <span class="evidence-badge evidence-${gene.classification.toLowerCase()}">
                                                 ${gene.classification}
@@ -679,7 +764,7 @@
                             </tbody>
                         </table>
                         <button class="download-btn" onclick="downloadPanel(${index})">
-                            📥 Download ${disease.title} Panel (CSV)
+                            Download Panel (CSV)
                         </button>
                     </div>
                 </div>
