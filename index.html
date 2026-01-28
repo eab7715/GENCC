@@ -450,6 +450,21 @@
     <input type="file" id="fileInput" accept=".csv" style="display: none;">
 
     <script>
+
+
+        window.addEventListener('DOMContentLoaded', function() {
+    // Fetch the CSV from your repo
+    fetch('gencc_gene_disease_associations.csv')
+        .then(response => response.text())
+        .then(csv => {
+            parseCSV(csv);
+        })
+        .catch(error => {
+            console.error('Error loading data:', error);
+            // Fall back to showing upload prompt
+        });
+});
+        
         let allData = [];
         let filteredData = [];
         let activeFilter = 'all';
