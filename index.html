@@ -340,6 +340,15 @@
             border-radius: 4px;
         }
 
+        .error-message {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #856404;
+        }
+
         @media (max-width: 768px) {
             .search-section {
                 grid-template-columns: 1fr;
@@ -438,10 +447,7 @@
 
             <div id="content">
                 <div class="loading">
-                    <p>👆 Upload your GenCC data file (CSV) to get started</p>
-                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.7;">
-                        You can generate this file using the R scripts provided
-                    </p>
+                    <p>⏳ Loading GenCC data...</p>
                 </div>
             </div>
         </div>
@@ -450,21 +456,6 @@
     <input type="file" id="fileInput" accept=".csv" style="display: none;">
 
     <script>
-
-
-        window.addEventListener('DOMContentLoaded', function() {
-    // Fetch the CSV from your repo
-    fetch('gencc_gene_disease_associations.csv')
-        .then(response => response.text())
-        .then(csv => {
-            parseCSV(csv);
-        })
-        .catch(error => {
-            console.error('Error loading data:', error);
-            // Fall back to showing upload prompt
-        });
-});
-        
         let allData = [];
         let filteredData = [];
         let activeFilter = 'all';
@@ -480,6 +471,62 @@
             'Refuted Evidence': 1,
             'No Known Disease Relationship': 0
         };
+
+        // Auto-load data when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            loadData();
+        });
+
+        async function loadData() {
+            try {
+                // Try multiple possible paths for the CSV file
+                const possiblePaths = [
+                    'gencc_gene_disease_associations.csv',  // Same directory
+                    './gencc_gene_disease_associations.csv', // Explicit relative path
+                ];
+
+                let loaded = false;
+                for (const path of possiblePaths) {
+                    try {
+                        const response = await fetch(path);
+                        if (response.ok) {
+                            const csv = await response.text();
+                            parseCSV(csv);
+                            console.log('Successfully loaded data from:', path);
+                            loaded = true;
+                            break;
+                        }
+                    } catch (e) {
+                        console.log('Failed to load from:', path);
+                    }
+                }
+
+                if (!loaded) {
+                    throw new Error('Could not load CSV file from any path');
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+                showUploadPrompt();
+            }
+        }
+
+        function showUploadPrompt() {
+            document.getElementById('content').innerHTML = `
+                <div class="loading">
+                    <div class="error-message">
+                        <strong>⚠️ Auto-load failed</strong><br>
+                        This can happen if:<br>
+                        • The CSV file is not in the same directory as index.html<br>
+                        • You're opening the file directly (file://) instead of via a web server<br>
+                        • GitHub Pages is not enabled for this repository
+                    </div>
+                    <p>👆 Please upload your GenCC data file (CSV) to continue</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.7;">
+                        Or ensure gencc_gene_disease_associations.csv is in the same directory
+                    </p>
+                </div>
+            `;
+        }
 
         function uploadData() {
             document.getElementById('fileInput').click();
