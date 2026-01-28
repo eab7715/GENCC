@@ -55,7 +55,7 @@
 
         .search-section {
             display: grid;
-            grid-template-columns: 1fr auto auto;
+            grid-template-columns: 1fr auto;
             gap: 15px;
             margin-bottom: 20px;
         }
@@ -373,7 +373,6 @@
                     <span class="search-icon">🔍</span>
                     <input type="text" id="searchInput" placeholder="Search for diseases (e.g., cardiomyopathy, breast cancer, autism)...">
                 </div>
-                <button class="btn btn-primary" onclick="uploadData()">📤 Upload GenCC Data</button>
                 <button class="btn btn-secondary" onclick="downloadAllData()">⬇️ Download All</button>
             </div>
 
@@ -453,8 +452,6 @@
         </div>
     </div>
 
-    <input type="file" id="fileInput" accept=".csv" style="display: none;">
-
     <script>
         let allData = [];
         let filteredData = [];
@@ -514,35 +511,19 @@
             document.getElementById('content').innerHTML = `
                 <div class="loading">
                     <div class="error-message">
-                        <strong>⚠️ Auto-load failed</strong><br>
+                        <strong>⚠️ Failed to load data</strong><br>
                         This can happen if:<br>
                         • The CSV file is not in the same directory as index.html<br>
                         • You're opening the file directly (file://) instead of via a web server<br>
                         • GitHub Pages is not enabled for this repository
                     </div>
-                    <p>👆 Please upload your GenCC data file (CSV) to continue</p>
+                    <p style="margin-top: 20px;">Please ensure gencc_gene_disease_associations.csv is in the same directory as index.html</p>
                     <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.7;">
-                        Or ensure gencc_gene_disease_associations.csv is in the same directory
+                        If using GitHub, make sure GitHub Pages is enabled in your repository settings
                     </p>
                 </div>
             `;
         }
-
-        function uploadData() {
-            document.getElementById('fileInput').click();
-        }
-
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const csv = e.target.result;
-                    parseCSV(csv);
-                };
-                reader.readAsText(file);
-            }
-        });
 
         function parseCSV(csv) {
             const lines = csv.split('\n');
